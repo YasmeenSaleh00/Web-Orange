@@ -95,3 +95,39 @@ return current;
 }
 
 console.log(longestUniqueSubarray([1,2,3,1,2,3,4,5]));
+//Task 6
+//Each number should be replaced by the product of all other numbers in the array (excluding itself).
+//  Division is not allowed.
+console.log("------------Task 6-------------");
+function ProductofArrayExceptSelf (arr){
+    //nested loop method
+//     let producArray=[];
+// for(let i=0;i<arr.length;i++){
+// let product=1;
+// for(let j =0;j<arr.length;j++){
+//     if(i!==j){
+// product*=arr[j]
+//     }
+
+// }
+// producArray.push(product)
+
+// }
+// return producArray;
+
+//without nested loop
+let result =[];
+let leftProduct=1;
+ for(let i=0;i<arr.length;i++){
+     result[i] = leftProduct;
+     leftProduct *=arr[i];
+ }
+ let rightProduct =1;
+ for(let i = arr.length-1;i>=0 ;i--){
+    //بنضرب اليسار بالقيمة الي اصلا موجودة باليمين
+    result[i] *= rightProduct;
+    rightProduct *=arr[i];
+ }
+ return result
+}
+console.log(ProductofArrayExceptSelf([1,2,3,4]));
