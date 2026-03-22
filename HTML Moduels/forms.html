@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+<body>
+    <!-- 4.1 -->
+    <h2>User Registration Form</h2>
+    <form method="post">
+    <label >Name</label>
+    <input type="text" name="Name">
+     <label>Email</label>
+    <input type="email" required name="email">
+     <label>Password</label>
+    <input type="password" name="password">
+    <label>Date Of Birth</label>
+    <input type="date" name="date">
+    <label> Profile Picture</label>  
+    <input type="file" name="Picture">
+    <button type="submit" >Submit</button>
+    </form>
+    <hr>
+    <!-- 4.2 -->
+  <h2>User Preferences</h2>
+
+<form action="https://example.com/submit"  method="post">
+
+
+    <label for="about">About Me:</label><br>
+    <textarea id="about" name="about" rows="4" cols="40" ></textarea>
+    <br><br>
+
+
+    <label for="country">Country:</label><br>
+    <select id="country" name="country">
+        <option value="jordan">Jordan</option>
+        <option value="egypt">Egypt</option>
+        <option value="ksa">Ksa</option>
+    </select>
+    <br><br>
+
+    
+    <fieldset>
+        <legend>Contact Preference:</legend>
+
+        <input type="radio" id="email" name="contact" value="email">
+        <label for="email">Email</label><br>
+
+        <input type="radio" id="phone" name="contact" value="phone">
+        <label for="phone">Phone</label>
+
+    </fieldset>
+    <br>
+
+
+    <input type="submit" value="Save ">
+
+</form>
+<hr>
+<!-- 4.3 -->
+ <form action="https://example.com/submit" method="post" target="_blank" autocomplete="off">
+    <label >Name</label>
+    <input type="text" name="Name">
+     <label>Email</label>
+    <input type="email" required name="email">
+     <label>Password</label>
+    <input type="password" name="password">
+    <button type="submit" >Submit</button>
+    </form>
+    <!-- 4.4 -->
+     <h2>Survey Form</h2>
+     <form action="">
+         <label for="username">Username</label>
+          <input id="username" type="text" name="Name" maxlength="10" required>
+          <label for="age">Age</label>
+          <input id="age" type="number" name="age" min="18" max="60">
+<label>Favorite Language:</label>
+  <input type="text" list="langs">
+  <datalist id="langs">
+    <option value="HTML">
+    <option value="CSS">
+    <option value="JavaScript">
+  </datalist>
+     </form>
+</body>
+</html>

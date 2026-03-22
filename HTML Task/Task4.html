@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 4</title>
+  </head>
+  <body>
+    <h1>Fill Your Information</h1>
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Form</legend>
+        <label for="fname">First Name:</label>
+        <br />
+        <input type="text" name="Fname" id="fname" required />
+        <br />
+        <label for="lname">Last Name:</label>
+        <br />
+        <input type="text" name="Lname" id="lname" required />
+        <br />
+        <label for="email">Email:</label>
+        <br />
+        <input type="email" name="email" id="email" required />
+        <br />
+        <h4>Your Gender</h4>
+        <input type="radio" id="male" name="gender" value="Male" />
+        <label for="male">Male</label>
+
+        <input type="radio" id="female" name="gender" value="Female" />
+        <label for="female">Female</label>
+        <h4>Favorite Subject</h4>
+        <input type="checkbox" id="C++" name="favorite_subject" value="C++" />
+        <label for="C++">C++</label>
+
+        <input type="checkbox" id="Java" name="favorite_subject" value="Java" />
+        <label for="Java">Java</label>
+
+        <input type="checkbox" id="C#" name="favorite_subject" value="C#" />
+        <label for="C#">C#</label>
+        <input type="checkbox" id="php" name="favorite_subject" value="php" />
+        <label for="php">PHP</label>
+        <input type="checkbox" id="sql" name="favorite_subject" value="sql" />
+        <label for="sql">SQL</label>
+        <h4>Your City</h4>
+        <label for="city">City:</label>
+        <select id="city" name="city">
+          <option value="irbid">Irbid</option>
+          <option value="amman">Amman</option>
+          <option value="zarqa">Zarqa</option>
+        </select>
+        <br />
+        <br />
+        <label for="img">Upload Image:</label>
+        <input type="file" id="img" name="profile_image" />
+        <br />
+        <br />
+        <label for="text">Write About yourself:</label>
+        <br />
+        <br />
+        <textarea placeholder="Write Here" id="text"></textarea>
+        <br />
+
+        <button type="submit">Submit</button>
+      </fieldset>
+    </form>
+    <hr />
+    <form action="" method="post">
+      <label for="name">Name:</label>
+
+      <input type="text" name="name" id="name" required />
+      <br />
+      <label for="address">Address:</label>
+
+      <input type="text" name="address" id="address" />
+      <br />
+      <label for="city">City:</label>
+
+      <input type="text" name="city" id="city" />
+      <br />
+      <label for="state">State:</label>
+
+      <input type="text" name="state" id="state" />
+      <br />
+      <label for="zip">Zip:</label>
+
+      <input type="number" name="zip" id="zip" />
+      <br />
+      <label for="addresstwo">Address:</label>
+
+      <input type="text" name="address" id="addresstwo" />
+      <br />
+      <label for="magazine">Magazine:</label>
+      <select id="magazine" name="magazine">
+        <option value="newsweek">Newsweek</option>
+        <option value="time">Time</option>
+        <option value="forbes">Forbes</option>
+      </select>
+      <br />
+      <label>Subscription:</label>
+      <input type="radio" id="oneyear" name="subscription" value="1year" />
+      <label for="oneyear">1 Year</label>
+
+      <input type="radio" id="twoyear" name="subscription" value="2year" />
+      <label for="twoyear">2 Years</label>
+      <br />
+      <button type="submit">Send Your Order</button>
+    </form>
+  </body>
+</html>
