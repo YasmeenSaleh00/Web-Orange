@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator Program</title>
+  </head>
+  <body>
+    <script>
+      let operation = prompt("Enter The Operation ", "+");
+      let num1 = Number(prompt("Enter The First Number:"));
+      let num2 = Number(prompt("Enter The Second Number:"));
+      let result = 0;
+
+      //With if condation
+      if (operation == "+") {
+        result = num1 + num2;
+        console.log(`The Result is : ${result}`);
+        document.write(`${num1} + ${num2} = ${result}`);
+      } else if (operation == "-") {
+        result = num1 - num2;
+        console.log(`The Result is : ${result}`);
+        document.write(`${num1} - ${num2} = ${result}`);
+      } else if (operation == "*") {
+        result = num1 * num2;
+        console.log(`The Result is : ${result}`);
+        document.write(`${num1} * ${num2} = ${result}`);
+      } else if (operation == "/") {
+        result = num1 / num2;
+        console.log(`The Result is : ${result}`);
+        document.write(`${num1} / ${num2} = ${result}`);
+      }
+      // or with switch
+
+      switch (operation) {
+        case "+":
+          result = num1 + num2;
+          console.log(`The Result is : ${result}`);
+          document.write(`${num1} + ${num2} = ${result}`);
+
+          break;
+        case "-":
+          result = num1 - num2;
+          console.log(`The Result is : ${result}`);
+          document.write(`${num1} - ${num2} = ${result}`);
+
+          break;
+        case "*":
+          result = num1 * num2;
+          console.log(`The Result is : ${result}`);
+          document.write(`${num1} * ${num2} = ${result}`);
+          break;
+        case "/":
+          result = num1 / num2;
+          console.log(`The Result is : ${result}`);
+          document.write(`${num1} / ${num2} = ${result}`);
+      }
+    </script>
+  </body>
+</html>

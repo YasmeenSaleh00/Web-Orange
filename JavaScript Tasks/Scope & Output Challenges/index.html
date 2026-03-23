@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      console.log("----------------------Task 1-------------------");
+      //   console.log(a);
+      //   var a = 10;
+      console.log(
+        `The Output is undefined because we initilize the variable after we  used it`,
+      );
+      console.log("----------------------Task 2-------------------");
+      //   console.log(a);
+      //   let a = 10;
+      console.log(
+        ` Erorr because we initilize the variable after we  used it and we intilize a with let in(Temporal Dead Zone) `,
+      );
+      console.log("----------------------Task 3-------------------");
+      //       var x=1
+
+      //   function test() {
+      //   if (true) {
+      //   var x=2
+      //     }
+      //   console.log(x)
+      //   }
+
+      //   test()
+      //   console.log(x)
+      console.log(
+        ` x in function test = 2 because in  if scope we intilize x again because var let you to intilize x again x in
+                    globale  scope equal = 1  `,
+      );
+
+      console.log("----------------------Task 4-------------------");
+      //   let x = 10;
+
+      //   function test() {
+      //     console.log(x);
+      //     let x = 20;
+      //   }
+
+      //   test();
+      console.log(
+        ` error  x in function scope will see x first because internal variable and Cannot access 'x' before initialization  `,
+      );
+      console.log("----------------------Task 5-------------------");
+      //   for (var i = 0; i < 3; i++) {
+      //     setTimeout(() => console.log(i), 0);
+      //   }
+      console.log(
+        ` setTimeout()  wait for loop to finish before apply so will print 3 three times var i same for every itration
+              but let create every itration new value (closure in i value every cycle) `,
+      );
+      console.log("----------------------Task 6-------------------");
+      //   for (let i = 0; i < 3; i++) {
+      //     setTimeout(() => console.log(i), 0);
+      //   }
+      console.log(
+        ` the ouput 0 1 2  let create every itration new value (closure in i value every cycle) `,
+      );
+      console.log("----------------------Task 7-------------------");
+      //   var a = 1;
+
+      //   function outer() {
+      //     var a = 2;
+
+      //     function inner() {
+      //       console.log(a);
+      //     }
+
+      //     inner();
+      //   }
+
+      //   outer();
+      console.log(
+        ` the ouput  2  because there is a in function scope so no need to go out function scope`,
+      );
+      console.log("----------------------Task 8-------------------");
+      //   var a = 10;
+      //   let a = 20;
+      console.log(
+        `error a already declared because let dosent allow to reantilization same variable in same scope`,
+      );
+      console.log("----------------------Task 9-------------------");
+      //   console.log(foo);
+
+      //   var foo = 10;
+
+      //   function foo() {
+      //     return 20;
+      //   }
+      console.log(
+        `ƒ foo() {
+              return 20;
+            } because no () and functions take first priority and later variable if with same name`,
+      );
+      console.log("----------------------Task 10-------------------");
+      //   let a = 10;
+
+      //   function test() {
+      //     a = 20;
+      //   }
+
+      //   test();
+      //   console.log(a);
+      console.log(
+        ` 20 we make Re-assignment at first search in function scope there is variable with name a? no so go to global scope `,
+      );
+      console.log("----------------------Task 11-------------------");
+      //   {
+      //     var a = 10;
+      //   }
+
+      //   console.log(a);
+      console.log(` 10 its ok because it var can use it in any scope`);
+      console.log("----------------------Task 12-------------------");
+      //   {
+      //     let a = 10;
+      //   }
+
+      //   console.log(a);
+      console.log(
+        ` error a in scope variable with let just use it in thier scopes `,
+      );
+      console.log("----------------------Task 13-------------------");
+      //   let a = 5;
+
+      //   function test(a) {
+      //     console.log(a);
+      //   }
+
+      //   test(10);
+      console.log(
+        ` 10 we use a in global and function scope as pramater and based in priority scope come first  `,
+      );
+      console.log("----------------------Task 14-------------------");
+      //  100 time in milieseconds
+      //   function test() {
+      //     for (var i = 0; i < 3; i++) {
+      //       setTimeout(() => console.log(i), 100);
+      //     }
+      //   }
+
+      //   test();
+      console.log(` 3 three times  `);
+      console.log("----------------------Task 15-------------------");
+      //   for (var i = 0; i < 3; i++) {
+      //     (function (i) {
+      //       setTimeout(() => console.log(i), 0);
+      //     })(i);
+      //   }
+      console.log(
+        ` 0 1 2  Immediately Invoked Function Expression that was the solution before let `,
+      );
+      console.log(`🚨 Note:
+      Imporatent Note : Function declarations are hoisted before variables`);
+    </script>
+  </body>
+</html>

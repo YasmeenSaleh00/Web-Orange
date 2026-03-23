@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age Category</title>
+  </head>
+  <body>
+    <script>
+      let age = Number(prompt("Please Enter your Age"));
+      if (age < 13) {
+        alert("Child");
+        console.log("Child");
+      } else if (age >= 13 && age <= 19) {
+        alert("Teenager");
+        console.log("Teenager");
+      } else if (age >= 20 && age <= 59) {
+        alert("Adult");
+        console.log("Adult");
+      } else if (age >= 60) {
+        alert("Senior");
+        console.log("Senior");
+      }
+    </script>
+  </body>
+</html>

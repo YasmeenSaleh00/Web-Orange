@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using π Constant</title>
+  </head>
+  <body>
+    <script>
+      const pi = Math.PI;
+      let radius = Number(
+        prompt(
+          "Enter the radius to calculate Area Of Circle And Circumference Of Circle",
+        ),
+      );
+      let areaOfCircle = pi * Math.pow(radius, 2);
+      console.log(`Area Of Circle Is :${areaOfCircle}`);
+      let circumferenceOfCircle = pi * radius * 2;
+      console.log(`The Circumference Of Circle Is :${circumferenceOfCircle} `);
+    </script>
+  </body>
+</html>
