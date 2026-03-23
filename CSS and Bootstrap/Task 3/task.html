@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .bg-black {
+        background-color: #1a1e26 !important;
+        color: #cccccc;
+      }
+      .border-black {
+        border-color: #333 !important;
+      }
+      .bg {
+        background-color: #1a1e26 !important;
+      }
+      .mw {
+        max-width: 600px !important;
+      }
+      .w-100 {
+        width: 100% !important;
+      }
+      .bg-dark {
+        background-color: #c1cce110 !important;
+      }
+      .start-0 {
+        left: 12px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        color: #888 !important;
+      }
+      .search input:focus + i {
+        display: none;
+      }
+      .search input:focus {
+        border: 1px solid #888;
+        box-shadow: 1px 1px 3px #888;
+      }
+      .me-5 {
+        margin-right: 40px !important;
+      }
+      .notification i:hover {
+        color: #888888a1;
+      }
+      .min-w {
+        min-width: 18px !important;
+        height: 18px !important;
+        font-size: 11px !important;
+      }
+      .top-0 {
+        top: -1px !important;
+      }
+         .search input:focus + i {
+        display: none;
+      }
+      .search input:focus {
+        border: 1px solid #888 !important;
+        box-shadow: 1px 1px 3px #888 !important;
+      }
+      .start-100{
+       right: 26px !important; 
+      }
+      .bg-primary{
+        background-color:#c1cce110 !important ;
+      }
+        .side .side-content ul li {
+        background-color: #1a1e26;
+        padding: 10px;
+        border-radius: 5px;
+        transition: 0.5s;
+        cursor: pointer;
+        
+      }
+      .g-5{
+        gap: 20px !important;
+      }
+      .box{
+         background-color: #c1cce110;
+       margin-bottom: 20px;
+        border: 1px solid white;
+       padding: 10px;
+        border-radius: 10px;
+
+        align-items: center;
+      }
+       .side .side-content ul li:hover {
+        background-color: #c1cce110;
+        transform: translateY(-5px);
+      }
+         .side .side-content ul .selected {
+        background-color: #444141;
+        box-shadow: 0px 1px 10px 10px #1a1e26;
+      }
+      .h-100{
+       max-height: calc(100vh - 120px) !important;
+      }
+      .m-h{
+        min-height: 60px !important;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+      }
+      .card.one {
+        box-shadow: 1px 1px 5px 0px #d03838;
+      }
+      .card.one i {
+        color: #ae3838;
+      }
+      .card.two {
+        box-shadow: 1px 1px 5px 0px #187986;
+      }
+      .card.two i {
+        color: #187986;
+      }
+      .card.three {
+        box-shadow: 1px 1px 5px 0px #93d038e0;
+      }
+
+      .card.three i {
+        color: #93d038e0;
+      }
+      .card.four {
+        box-shadow: 1px 1px 5px 0px #c338d0e0;
+      }
+      .card.four i {
+        color: #c338d0e0;
+        font-size: 20px;
+      }
+      table {
+        border-radius: 15px;
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+        height: 100%;
+        border-collapse: collapse;
+      }
+      table th,
+      table td {
+        border: 1px solid #1a1e26;
+        padding: 20px;
+      }
+      table tbody td:hover {
+        background-color: #444141;
+      }
+      .paid {
+        background-color: rgba(67, 181, 129, 0.15);
+        color: #43b581;
+        padding: 10px 20px;
+
+        border-radius: 6px;
+
+        border: 1px solid rgba(67, 181, 129, 0.2);
+      }
+      .pending {
+        background-color: rgba(243, 156, 18, 0.1);
+        color: #f39c12;
+        border-color: rgba(243, 156, 18, 0.2);
+        padding: 10px 20px;
+        border-radius: 6px;
+      }
+
+      tfoot button {
+        width: 20px;
+        height: 20px;
+        background-color: #1a1e26;
+        border: none;
+        color: white;
+        cursor: pointer;
+        margin-left: 2px;
+        margin-right: 2px;
+      }
+      footer {
+        grid-column: span 2;
+        grid-row: 3 / 4;
+        background-color: #c1cce110;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .header-content {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+    </style>
+  </head>
+  <body class="bg-black">
+    <div class="container-fluid p-0 ">
+      <header
+        class="border-bottom border-black bg py-2 px-4 d-flex align-items-center justify-content-between gap-3 m-h"
+      >
+       <div class="d-none"><i class="fa-solid fa-bars "></i></div>
+        <div class="logo">
+          <h2 class="fs-4 m-0">Dashboard</h2>
+        </div>
+
+        <div
+          class="search position-relative flex-grow-1 mw-50"
+          style="max-width: 500px"
+        >
+          <input
+            type="search"
+            placeholder="      Search...."
+            class="form-control rounded-5 border-0 bg-dark  py-2 "
+          />
+          <i class="fa-solid fa-magnifying-glass position-absolute start-0"></i>
+        </div>
+
+        <div class="d-flex align-items-center gap-4">
+          <div class="user d-flex align-items-center gap-2">
+            <img
+              src="/Images/images.png"
+              alt="user"
+              width="38"
+              height="38"
+              class="rounded-circle border border-secondary"
+            />
+            <span class="d-none d-lg-inline fw-semibold">Jane Smith</span>
+          </div>
+          <div class="notification position-relative">
+            <i class="fa-solid fa-bell fs-5 cursor-pointer"></i>
+            <span
+              class="bg-danger min-w rounded-circle position-absolute top-0 start-100 translate-middle d-flex justify-content-center align-items-center "
+              style="font-size: 10px; width: 18px; height: 18px"
+            >
+              2
+            </span>
+          </div>
+        </div>
+      </header>
+     <!-- side -->
+<div class="d-flex">
+  
+  <div class="side bg-primary col-2 p-2 h-100">
+    <div class="side-content">
+      <ul class="list-unstyled d-flex flex-column g-5 p-3">
+        <li class="selected">
+          <i class="fa-solid fa-bag-shopping me-2"></i> Dashbord
+        </li>
+        <li><i class="fa-solid fa-chart-line me-2"></i> Analytics</li>
+        <li><i class="fa-solid fa-message me-2"></i> Messages</li>
+        <li><i class="fa-solid fa-gear me-2"></i> Settings</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="main flex-grow-1 p-4">
+  <div class="main-content box">
+    <h2 class="mb-4">Dashboard</h2>
+
+    <div class="row g-3"> 
+      
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card text-white one p-3 text-center bg-dark border-secondary d-flex flex-column align-items-center">
+          <i class="fa-solid fa-bag-shopping fs-3 mb-2"></i>
+          <span class="fw-bold fs-4">$ 7,500</span>
+          <p class="m-0">Total Sales</p>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card text-white two p-3 text-center bg-dark border-secondary d-flex flex-column align-items-center">
+          <i class="fa-solid fa-user fs-3 mb-2"></i>
+          <span class="fw-bold fs-4">1,250</span>
+          <p class="m-0">New Users</p>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="col-12 card text-white three p-3 text-center bg-dark border-secondary d-flex flex-column align-items-center">
+          <i class="fa-solid fa-box fs-3 mb-2"></i>
+          <span class="fw-bold fs-4">3,200</span>
+          <p class="m-0">Total Orders</p>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card text-white four p-3 text-center bg-dark border-secondary d-flex flex-column align-items-center">
+          <i class="fa-solid fa-gears fs-3 mb-2"></i>
+          <span class="fw-bold fs-4">50</span>
+          <p class="m-0">Support Tickets</p>
+        </div>
+      </div>
+
+    </div> 
+  </div>
+   <div class="main-content box">
+            
+            <div >
+              <h2>Transaction</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#10001</td>
+                    <td>Jonh Doe</td>
+                    <td><span class="paid">Paid</span></td>
+                    <td>$120.00</td>
+                  </tr>
+                  <tr>
+                    <td>#10002</td>
+                    <td>Jane Doe</td>
+                    <td><span class="pending">Pending</span></td>
+                    <td>$75.00</td>
+                  </tr>
+                  <tr>
+                    <td>#10003</td>
+                    <td>Mike Doe</td>
+                    <td><span class="paid">Paid</span></td>
+                    <td>$45.00</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="4">
+                      <span>Previous</span> <button>1</button> <span>Next</span>
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+ <footer class="main-footer">
+        <div class="footer">
+          <p>&copy; 2026 <strong>Dashbord</strong>. All rights reserved.</p>
+        </div>
+      </footer>
+
+</div>
+ 
+      
+       
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+* {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      body {
+        background-color: #ff7ffe;
+        min-height: 100vh;
+        padding: 10px;
+        margin: 10px;
+      }
+      .articles {
+        display: flex;
+        gap: 8px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      .articles p {
+        background-color: #eaeaec;
+        height: 100px;
+        overflow: hidden;
+        width: 200px;
+        
+      }
+      .hidden{
+        border-top: 5px solid black;
+       border-bottom: 5px solid black;
+        height: 100px;
+        overflow-y: scroll;
+      }

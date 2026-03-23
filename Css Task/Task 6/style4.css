@@ -1,0 +1,31 @@
+ * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      .page{
+        display: grid;
+        grid-template-columns: repeat(10,1fr);
+        grid-template-rows: 50px 1fr 100px;
+        gap: 10px;
+        min-height: 100vh;
+        padding: 10px;
+      
+      }
+      header:empty{
+        background-color: black;
+        grid-column: span 10;
+      }
+      section:empty{
+        background-color: #ffa500;
+        grid-column:span 8 ;
+       
+      }
+      aside:empty{
+        background-color: #008001;
+        grid-column: span 2;
+      }
+      footer:empty{
+        background-color:blue ;
+        grid-column: span 10;
+      }

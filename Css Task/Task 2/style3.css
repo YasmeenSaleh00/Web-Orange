@@ -1,0 +1,78 @@
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+      .containar{
+  background: linear-gradient(135deg, #6ccca7 0%, #48bea4 100%);
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    min-height: 100vh;
+       
+      }
+      .main{
+      background-color: white;
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
+    width: 350px;
+    text-align: center;
+    margin: 50px ;
+       
+      }
+      h3{
+        color: #48bea4;
+        
+    margin-bottom: 30px;
+    font-weight: normal;
+    font-size: 24px;
+      }
+      .input {
+margin-bottom: 15px;
+      }
+      .input input{
+        padding: 12px;
+        width: 100%;
+        border: 1px solid #ddd;
+      }
+      .show-password {
+    text-align: left;
+    margin-bottom: 25px;
+    font-size: 13px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.signin-btn{
+  background-color: #48bea4;
+  border: none;
+  outline: none;
+  padding: 12px 15px;
+  border-radius: 5px;
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  cursor: pointer;
+    
+}
+.signin-btn:hover {
+    background-color: #08635a;
+}
+.footer-links p{
+font-size: 10px;
+color: #666;
+margin-bottom: 5px;
+}
+.footer-links p a{
+  text-decoration: none;
+  color: #48bea4;
+}
+.footer-links a:hover {
+    text-decoration: underline;
+}

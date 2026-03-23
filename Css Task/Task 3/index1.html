@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 3</title>
+    <link rel="stylesheet" href="style1.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+      .containar {
+        background-color: #e3e3ff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       
+        min-height: 100vh;
+      }
+      .main {
+        background-color: #8886c7; 
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0px 10px 30px #00000033;
+        width: 450px;
+        text-align: center;
+        color: white;
+      }
+      .main h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+        font-weight: bold;
+      }
+      .main form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+      .full-width {
+        grid-column: span 2;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        outline: none;
+        font-size: 15px;
+        border: none;
+        box-shadow: 0px 0px 30px #00000033 ;
+        color: #555;
+      }
+      input:focus{
+        border: 2px solid #e3e3ff;
+      }
+    
+      .check{
+       grid-column: span 2;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin: 10px 0;
+      }
+      .signup-btn{
+        grid-column: span 2;
+        background-color: #8f8c87;
+        border: none;
+        outline: none;
+        width: 100%;
+        cursor: pointer;
+        color: #3333334d;
+        font-size: 20px;
+        padding:12px;
+        border-radius: 25px;
+        font-weight: bold;
+        margin: 10px auto 5px ;
+        
+      }
+      .signup-btn:hover{
+        background-color: #3333333d;
+      }
+      .footer-links{
+        grid-column: span 2;
+      }
+      .footer-links p{
+        font-size: 16px;
+        margin-bottom: 10px;
+       
+      }
+      .footer-links p a{
+         color: white;
+      }
+      .footer{
+        margin-top: 10px;
+      }
+    </style>
+ 
+  </head>
+  <body>
+    <div class="containar">
+      <div class="main">
+        <h2>sign up</h2>
+        <form action="">
+          <div class="input1">
+            <input type="text" placeholder="First Name" name="fname" />
+          </div>
+          <div class="input2">
+            <input type="text" placeholder="Last Name" name="lname" />
+          </div>
+          <div class="full-width">
+            <input type="email" placeholder="Email" name="email" />
+          </div>
+          <div class="full-width">
+            <input type="password" placeholder="Password" name="password" />
+          </div>
+          <div class="full-width">
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              name="cpassword"
+            />
+          </div>
+          <div class="check">
+            <input type="checkbox" name="terms" />
+            <label>I accept the Terms of use & privacy policy</label>
+          </div>
+          <button type="submit" class="signup-btn">Sign up</button>
+          <div class="footer-links">
+            <p>Already have an account?<a href="#">Login here </a></p>
+          </div>
+        </form>
+        <p class="footer">Copyright &copy; Yourcompny.com</p>
+      </div>
+    </div>
+  </body>
+</html>
