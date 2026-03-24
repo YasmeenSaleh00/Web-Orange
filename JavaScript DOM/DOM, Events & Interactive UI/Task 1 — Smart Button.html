@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .clicked{
+        background-color: rgb(64, 25, 37);
+        color: white;
+        box-shadow: 0px 0px  20px rgb(129, 114, 114);
+      }
+    </style>
+</head>
+<body>
+<!-- عشان افهم target current target -->
+<!-- <div id="parent" style="padding: 40px; background: #f0f0f0; border: 2px solid #ccc;">
+  I am the PARENT
+  <button id="child" style="display: block; margin-top: 10px; padding: 10px;">
+    I am the CHILD
+  </button>
+</div> -->
+
+<button>Click Me</button>
+<script>
+//   const parent = document.getElementById('parent');
+
+//   parent.addEventListener('click', function(e) {
+//     console.log("--- New Click ---");
+//     console.log("Where you clicked (target):", e.target.id);
+//     console.log("Where the code is (currentTarget):", e.currentTarget.id);
+//   });
+
+// ## Task 1 — Smart Button
+
+// 🎯 Requirements:
+
+// - Create a button
+// - On click:
+//     - Change text (e.g., "Clicked!")
+//     - Toggle a class
+
+// ### Expected Behavior:
+
+// - First click → change text + add class
+// - Second click → restore original state
+let button = document.getElementsByTagName("button")[0];
+button.addEventListener("click",function (e){
+   
+   e.target.classList.toggle("clicked");
+   if(e.target.classList.contains("clicked")){
+    e.target.textContent= "Clicked !";
+   }else{
+        e.target.textContent= "Click Me";
+
+   }
+});
+console.log(button)
+</script>
+</body>
+</html>

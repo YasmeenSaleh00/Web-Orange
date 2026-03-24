@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="input" />
+    <p></p>
+    <script>
+      //         ## Task 2 — Live Input Preview
+
+      // 🎯 Requirements:
+
+      // - Input + paragraph
+
+      // ### Behavior:
+
+      // - While typing:
+      //     - Show the same text inside the paragraph
+
+      // 👉 focus:
+
+      // - `event.target.value`
+      let input = document.getElementById("input");
+      let paragraph = document.getElementsByTagName("p")[0];
+      input.addEventListener("input", function (e) {
+        paragraph.textContent=e.target.value;
+      });
+    </script>
+  </body>
+</html>
