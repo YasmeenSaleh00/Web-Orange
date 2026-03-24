@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h1 id="title">Hello World</h1>
+
+  <button onclick="addClass()">Add Class</button>
+  <button onclick="removeClass()">Remove Class</button>
+  <button onclick="toggleClass()">Toggle Class</button>
+  <button onclick="checkClass()">Check Class</button>
+    <script>
+        let title = document.getElementById("title");
+
+// 1. add
+function addClass() {
+  title.classList.add("active");
+}
+
+// 2. remove
+function removeClass() {
+  title.classList.remove("active");
+}
+
+// 3. toggle
+function toggleClass() {
+  title.classList.toggle("active");
+}
+
+// 4. contains
+function checkClass() {
+  if (title.classList.contains("active")) {
+    alert("Class موجودة");
+  } else {
+    alert("Class مش موجودة");
+  }
+}
+    </script>
+</body>
+</html>

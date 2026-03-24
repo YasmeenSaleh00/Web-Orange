@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>This is div 
+        <ul class="list">
+        <li>FIRST</li>
+        <li>SECOND</li>
+    </ul>  
+    <p>The next siblings</p>
+    </div>
+    <script>
+// ### Task 3 — DOM Traversing Challenge
+
+// 🎯 Requirements:
+
+// - Given a nested structure (div → ul → li...):
+// - Access a specific element:
+
+// ❌ Without using `querySelector`
+
+// ✅ Using only:
+
+// - parent
+// - children
+// - siblings
+
+let element = document.getElementsByClassName("list")[0];
+
+//the target is parent of ul
+console.log(element.parentElement);
+// THE TARGET ELEMENT IS children of ul
+console.log(element.children);
+//The target element is siblings
+console.log(element.nextElementSibling);
+
+
+    </script>
+</body>
+</html>

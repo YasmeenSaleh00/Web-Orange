@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+        .card{
+            border: 1px solid black;
+            background-color: #3333;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <script>
+    // Task 2 — Dynamic Content Builder
+let card = document.createElement("div");
+let title = document.createElement("h2");
+let titleContent = document.createTextNode("This is title ");
+let description = document.createElement("p");
+let descriptionContent = document.createTextNode("There is description of card ");
+let image = document.createElement("img");
+image.setAttribute("src","image-resources2.jpg");
+title.appendChild(titleContent);
+description.appendChild(descriptionContent);
+card.appendChild(title);
+card.appendChild(image)
+card.appendChild(description);
+document.body.append(card);
+//some styles
+image.style.width="200px";
+card.classList.add("card");
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        THIS IS HEADINGS
+    </h1>
+    <P>THIS PARAGRAPH WILL REPLCAED</P>
+    <script>
+//         ### Task 4 — Replace & Update
+
+// 🎯 Requirements:
+
+// - Replace an existing element with a new one
+// - Update text content
+// - Modify classes
+// - Replace an existing element with a new one
+let h1 = document.getElementsByTagName("h1")[0];
+//عملت واحد جديد و و بدلته بالقديم
+let newP = document.createElement("p");
+newP.textContent = "THAT WAS HEADINGS";
+h1.parentElement.replaceChild(newP, h1);
+//- Update text content
+document.getElementsByTagName("p")[1].textContent="replaced";
+// - Modify classes
+newP.classList.add("active")
+    </script>
+</body>
+</html>
