@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover</title>
+    <style>
+        .hover{
+              background-color: azure;
+              padding: 20px;
+              width: 100px;
+              border: 1px solid black;
+              margin-top: 20px;
+        }
+        .active{
+            background-color: yellow;
+            font-weight: bold;
+        }
+        </style>
+</head>
+<body>
+    <div class="hover">
+        Hello world!
+    </div>
+   <script>
+//     **Requirements:**
+
+// - When hovering over the element:
+//     - The background color should change to **yellow**
+//     - The text should become **bold**
+
+let card = document.getElementsByTagName("div")[0];
+card.addEventListener("mouseover",function(e){
+   e.target.classList.add("active");
+})
+card.addEventListener("mouseleave",function(e){
+   e.target.classList.remove("active");
+})
+   </script> 
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <select>
+        <option selected>Choose country</option>
+        <option value="spain">Spain</option>
+        <option value="India">India</option>
+        <option value="jordan">Jordan</option>
+    </select>
+    <div><img src="" alt=""></div>
+    <script>
+//  **Requirements:**
+// - Create a dropdown menu with a list of countries
+// - When a country is selected:
+//     - The corresponding **flag** should be displayed
+
+let element = document.getElementsByTagName("select")[0];
+let image = document.getElementsByTagName("img")[0];
+element.addEventListener("change",function(e){
+  if(e.target.value === "jordan"){
+        image.src="jordan.jpg"
+    }  if(e.target.value ==="spain"){
+ image.src="spain.png";
+    }if(e.target.value==="India"){
+         image.src="Flag_of_India.svg.png";
+
+    }
+})
+    </script>
+</body>
+</html>

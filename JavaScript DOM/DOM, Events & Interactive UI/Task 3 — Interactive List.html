@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <button>Add</button>
+    <ul>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+// ## Task 3 — Interactive List
+
+// 🎯 Requirements:
+
+// - Input + Button + List
+
+// ### Behavior:
+
+// - Add item to list
+// - Each item must include:
+//     - Text
+//     - Delete button
+
+// ### Important:
+
+// - ❌ Do NOT add event لكل عنصر
+// - ✅ Use **Event Delegation**
+
+let input = document.querySelector("input");
+let btn = document.querySelector("button");
+let ul = document.querySelector("ul");
+
+// 1. إضافة العنصر عند الضغط على الزر
+btn.addEventListener("click", () => {
+    if (input.value.trim() !== "") {
+        ul.innerHTML += `<li>${input.value} <button class="delete">Delete</button></li>`;
+        input.value = "";
+    }
+});
+
+// 2. 🔥 تفويض الأحداث: نراقب الـ ul ونحذف إذا كان الـ target هو زر الحذف
+ul.addEventListener("click", (e) => {
+    if (e.target.classList.contains("delete")) {
+        e.target.parentElement.remove(); // حذف الـ li الذي يحتوي على الزر
+    }
+});
+
+    </script>
+</body>
+</html>
