@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 4 — Text Editor (Mini Editor)</title>
+  </head>
+  <body>
+    <select name="" id="fontstyle">
+      <option selected disabled>Select Font Style</option>
+      <option value="Arial">Arial (Sans-Serif)</option>
+      <option value="'Times New Roman', Times, serif">
+        Times New Roman (Serif)
+      </option>
+      <option value="'Courier New', Courier, monospace">
+        Courier New (Monospace)
+      </option>
+      <option value="Georgia">Georgia</option>
+      <option value="Verdana">Verdana</option>
+      <option value="cursive">Cursive (Handwriting Style)</option>
+      <option value="Impact">Impact (Bold Style)</option>
+    </select>
+    <select name="" id="fontsize">
+      <option selected disabled>Select Font Size</option>
+      <option value="10px">10px</option>
+      <option value="15px">15px</option>
+      <option value="20px">20px</option>
+      <option value="25px">25px</option>
+      <option value="30px">30px</option>
+    </select>
+    <input type="checkbox" name="decoration" id="italic" />
+    <label for="italic">Italic</label>
+    <input type="checkbox" name="decoration" id="bold" />
+    <label for="bold">Bold</label>
+    <input type="checkbox" name="decoration" id="underline" />
+    <label for="underline">Underline</label>
+    <div>
+      <textarea
+        name="text"
+        id="text"
+        style="width: 600px; height: 200px; margin-top: 20px"
+      ></textarea>
+    </div>
+    <script>
+      let textarea = document.getElementById("text");
+      let fontstyle = document.getElementById("fontstyle");
+      let fontsize = document.getElementById("fontsize");
+      let italic = document.getElementById("italic");
+      let bold = document.getElementById("bold");
+      let underline = document.getElementById("underline");
+      fontstyle.addEventListener("change", function () {
+        textarea.style.fontFamily = this.value;
+      });
+      fontsize.addEventListener("change", function (e) {
+        textarea.style.fontSize = e.target.value;
+      });
+      italic.addEventListener("change", function () {
+        textarea.style.fontStyle = this.checked ? "italic" : "normal";
+      });
+
+      bold.addEventListener("change", function () {
+        textarea.style.fontWeight = this.checked ? "bold" : "normal";
+      });
+
+      underline.addEventListener("change", function () {
+        textarea.style.textDecoration = this.checked ? "underline" : "none";
+      });
+    </script>
+  </body>
+</html>

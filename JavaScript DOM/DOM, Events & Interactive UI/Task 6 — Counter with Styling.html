@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 6 — Counter with Styling</title>
+  </head>
+  <body>
+    <div
+      style="
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 100px;
+      "
+    >
+      <button id="decrease">-</button>
+      <span id="value">0</span>
+      <button id="increase">+</button>
+    </div>
+    <script>
+      let increaseBtn = document.getElementById("increase");
+      let decreaseBtn = document.getElementById("decrease");
+      let value = document.getElementById("value");
+      let count = 0;
+      increaseBtn.addEventListener("click", function () {
+        count++;
+        updateStyle();
+      });
+      decreaseBtn.addEventListener("click", function () {
+        count--;
+        updateStyle();
+      });
+      function updateStyle() {
+        value.textContent = count;
+
+        if (count > 0) {
+          value.style.color = "green";
+        } else if (count < 0) {
+          value.style.color = "red";
+        } else {
+          value.style.color = "black";
+        }
+      }
+    </script>
+  </body>
+</html>

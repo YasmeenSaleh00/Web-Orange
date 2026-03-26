@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 5 — Toggle Visibility</title>
+    <style>
+      button {
+        background-color: rgb(130, 72, 218);
+        padding: 10px 20px;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-weight: bold;
+        font-size: 15px;
+        cursor: pointer;
+        margin: 20px;
+      }
+      section {
+        background-color: #cccccc4b;
+        width: 300px;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #cccccc4b;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        display: none;
+      }
+      .active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn">Show</button>
+    <section id="section">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt tenetur,
+      neque sint, molestias excepturi incidunt, autem quisquam a nemo vitae rem
+      consequatur modi facilis eum? Sequi facere error ad facilis! Lorem ipsum
+      dolor sit amet consectetur adipisicing elit. Iusto dolores nam possimus
+      fugit architecto saepe illum facere corporis quisquam perspiciatis
+      deserunt odit culpa, enim facilis nisi, at expedita repellat rem!
+    </section>
+    <script>
+      let btn = document.getElementById("btn");
+      let section = document.getElementById("section");
+      btn.addEventListener("click", function (e) {
+        section.classList.toggle("active");
+        if (section.classList.contains("active")) {
+          btn.textContent = "hide";
+        } else {
+          btn.textContent = "Show";
+        }
+      });
+    </script>
+  </body>
+</html>
