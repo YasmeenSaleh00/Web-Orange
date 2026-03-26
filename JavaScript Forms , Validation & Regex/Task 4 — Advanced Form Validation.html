@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 4 — Advanced Form Validation</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f2f5;
+        display: flex;
+        justify-content: center;
+        padding-top: 20px;
+      }
+      .containar {
+        width: 100%;
+        max-width: 500px;
+        background-color: #fff;
+        border-radius: 25px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+      .containar .head {
+        background-color: #176cca;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+      }
+      #form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        padding: 25px;
+      }
+      #first,
+      #last {
+        grid-column: span 1;
+      }
+      .inputgroup {
+        grid-column: span 2;
+        display: flex;
+        flex-direction: column;
+      }
+      label {
+        font-weight: 600;
+        color: #445;
+        margin-bottom: 5px;
+        font-size: 14px;
+      }
+      .inputgroup input {
+        padding: 10px;
+        border: 1px solid #c1c7cd;
+        border-radius: 6px;
+        font-size: 15px;
+        outline-color: #176cca;
+      }
+      #submit-btn {
+        grid-column: span 2;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       
+      }
+      button {
+        background-color: #176cca;
+        color: white;
+        padding: 10px;
+        border: none;
+        outline: none;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 20px;
+        width: 50%;
+        box-shadow: 0 4px 10px rgba(23, 108, 202, 0.3);
+      }
+      .bottom-text {
+        font-size: 15px;
+        color: green;
+        margin-top: 15px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-top: 0;
+      }
+      .error-msg {
+        color: #b00020;
+        font-size: 11px;
+        margin-top: 4px;
+        font-weight: 500;
+        display: block;
+        min-height: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="containar">
+      <div class="head">
+        <h2>Registration Form</h2>
+      </div>
+      <form action="#" id="form">
+        <div class="inputgroup" id="first">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" />
+          <span class="error-msg" id="firstName-error"></span>
+        </div>
+        <div class="inputgroup" id="last">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" />
+          <span class="error-msg" id="lastName-error"></span>
+        </div>
+        <div class="inputgroup">
+          <label for="date">Date of Birth</label>
+          <input type="date" id="date" />
+          <span class="error-msg" id="date-error"></span>
+        </div>
+        <div class="inputgroup">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" />
+          <span class="error-msg" id="email-error"></span>
+        </div>
+        <div class="inputgroup">
+          <!-- <label for="cemail"></label> -->
+          <input type="email" id="cemail" placeholder="Confirm Email " />
+          <span class="error-msg" id="cemail-error"></span>
+        </div>
+        <div class="inputgroup">
+          <label for="password">Password </label>
+          <input type="text" id="password" />
+          <span class="error-msg" id="password-error"></span>
+        </div>
+        <div class="inputgroup">
+          <label for="cpassword">Confirm Password </label>
+          <input type="text" id="cpassword" />
+          <span class="error-msg" id="cpassword-error"></span>
+        </div>
+        <div id="submit-btn">
+          <button type="submit">Register</button>
+        </div>
+      </form>
+      <p class="bottom-text" id="bottom-text"></p>
+    </div>
+    <script>
+      let form = document.getElementById("form");
+      let firstName = document.getElementById("fname");
+      let lastName = document.getElementById("lname");
+      let date = document.getElementById("date");
+      let email = document.getElementById("email");
+      let confirmEmail = document.getElementById("cemail");
+      let password = document.getElementById("password");
+      let ConfirmPassword = document.getElementById("cpassword");
+      let firstNameError = document.getElementById("firstName-error");
+      let lastNameError = document.getElementById("lastName-error");
+      let dateError = document.getElementById("date-error");
+      let emailError = document.getElementById("email-error");
+      let confirmEmailError = document.getElementById("cemail-error");
+      let passwordError = document.getElementById("password-error");
+      let confirmPasswordError = document.getElementById("cpassword-error");
+      let bottomtext = document.getElementById("bottom-text");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        firstNameError.textContent = "";
+        lastNameError.textContent = "";
+        dateError.textContent = "";
+        emailError.textContent = "";
+        confirmEmailError.textContent = "";
+        passwordError.textContent = "";
+        confirmPasswordError.textContent = "";
+        let valid = true;
+        const nameRegex = /^[a-zA-Z]+$/;
+        if (firstName.value.trim() === "") {
+          firstNameError.textContent = "First name is required";
+          valid = false;
+        } else if (!nameRegex.test(firstName.value)) {
+          firstNameError.textContent = "Letters Only";
+          valid = false;
+        }
+        if (lastName.value.trim() === "") {
+          lastNameError.textContent = "Last name is required";
+          valid = false;
+        } else if (!nameRegex.test(lastName.value)) {
+          lastNameError.textContent = "Letters Only";
+          valid = false;
+        }
+        if (date.value == "") {
+          dateError.textContent = "Birth of Date is required";
+          valid = false;
+        }
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (email.value.trim() === "") {
+          emailError.textContent = "Email is required";
+          valid = false;
+        } else if (!emailPattern.test(email.value)) {
+          emailError.textContent = "Not Valid Email";
+          valid = false;
+        }
+        if (email.value.trim() !== confirmEmail.value.trim()) {
+          confirmEmailError.textContent = "Emails do not match";
+          valid = false;
+        }
+        if (password.value === "") {
+          passwordError.textContent = "Password is requierd";
+          valid = false;
+        } else if (password.value.length < 8 || password.value.length > 32) {
+          passwordError.textContent =
+            "Length must be between 8 and 32 characters.";
+          valid = false;
+        } else if (!password.value.match(/^[A-Z]/)) {
+          passwordError.textContent = "Must start with a capital letter.";
+          valid = false;
+        } else if ((password.value.match(/\d/g) || []).length < 2) {
+          passwordError.textContent = "Must contain at least 2 numbers.";
+          valid = false;
+        } else if (!password.value.match(/[^a-z0-9]/i)) {
+          passwordError.textContent =
+            "Must contain at least 1 special character.";
+          valid = false;
+        }
+        if (password.value !== ConfirmPassword.value) {
+          confirmPasswordError.textContent = "Passwords do not match";
+          valid = false;
+        }
+        if (valid) {
+          bottomtext.textContent = "Submitted Successfully!";
+
+          form.reset();
+        } else {
+          bottomtext.textContent = "Please fix the errors above.";
+          bottomtext.style.color = "#b00020";
+        }
+      });
+    </script>
+  </body>
+</html>
