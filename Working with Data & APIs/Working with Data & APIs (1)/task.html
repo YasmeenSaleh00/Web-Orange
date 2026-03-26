@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>💻 Practice (Hands-on)</title>
+  </head>
+  <body>
+    <script>
+      //Task 1 from json to obj
+      const json = '{"city":"Amman","country":"Jordan"}';
+
+      const obj = JSON.parse(json);
+
+      console.log(obj.city);
+      //Task 2 from obj to json
+      const product = {
+        name: "Laptop",
+        price: 500,
+      };
+
+      const json1 = JSON.stringify(product);
+
+      console.log(json1);
+    </script>
+  </body>
+</html>
