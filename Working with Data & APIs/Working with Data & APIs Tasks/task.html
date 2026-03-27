@@ -29,7 +29,7 @@
           "Segoe UI",
           Roboto,
           sans-serif;
-      min-height: 100vh;
+        min-height: 100vh;
       }
       .head {
         display: flex;
@@ -98,7 +98,9 @@
       }
       .card {
         background-color: #f4f8fb9c;
-    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.05), 0 6px 6px rgba(79, 70, 229, 0.1);
+        box-shadow:
+          0 10px 20px #4f46e50d,
+          0 6px 6px #4f46e51a;
         padding: 20px;
         display: flex;
         flex-direction: column;
@@ -109,8 +111,8 @@
         gap: 10px;
       }
       .card:hover {
-    box-shadow: 0 20px 40px rgba(79, 70, 229, 0.2);
-    transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(79, 70, 229, 0.2);
+        transform: translateY(-10px);
       }
       .image {
         border-radius: 50%;
@@ -161,6 +163,7 @@
         font-weight: 500;
         color: white;
       }
+  
     </style>
   </head>
   <body>
@@ -240,7 +243,7 @@
               View Profile</a>
         </div>
       `;
-      
+
             loadingDiv.textContent = "User fetched";
             usersSection.innerHTML += card;
           });
