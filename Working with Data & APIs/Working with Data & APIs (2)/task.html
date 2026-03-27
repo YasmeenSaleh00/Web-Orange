@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Working with Data & APIs (2)</title>
+  </head>
+  <body>
+    <script>
+      //Fetch()
+      // Fetching data from an API (example: fake JSON placeholder service)
+      fetch("https://jsonplaceholder.typicode.com/users")
+        .then((response) => {
+          // Convert the response body to JSON
+          return response.json();
+        })
+        .then((data) => {
+          // Use the API data
+          console.log(data);
+        })
+        .catch((error) => {
+          // Handle network or parsing errors
+          console.error("Error fetching data:", error);
+        });
+      // Example: Get JOD to USD exchange rate using exchangerate-api.com
+      const url = "https://api.exchangerate-api.com/v4/latest/JOD";
+
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+          const usdRate = data.rates.USD;
+          console.log(`1 JOD = ${usdRate} USD`);
+        })
+        .catch((err) => console.error("Exchange rate API failed", err));
+      // Example: Posting form data to an API post http verb
+      const formData = {
+        name: "Heba",
+        email: "heba@example.com",
+      };
+
+      fetch("https://jsonplaceholder.typicode.com/posts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("Data saved:", data);
+        })
+        .catch((err) => console.error("Error posting data:", err));
+    </script>
+  </body>
+</html>
