@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      .containar {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        background-color: #f4f8fb;
+        border-radius: 10px;
+        box-shadow: 1px 1px 10px #ddd;
+        margin: 10px;
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+      min-height: 100vh;
+      }
+      .head {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+      .head h1 {
+        color: #3d0e63;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        padding-top: 10px;
+      }
+      .head h1 span {
+        color: #2c50cf;
+      }
+      .head p {
+        color: #6a7382;
+        font-size: 14px;
+      }
+      .head::after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 2px;
+        background-color: #d9d9f3;
+        bottom: -15px;
+      }
+      .task {
+        padding: 10px;
+        margin: 30px;
+        background-color: #d9d9f361;
+        border-radius: 10px;
+        border-left: 5px solid #2c50cf;
+      }
+      .task h2 {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .task ul {
+        list-style-type: none;
+        margin: 10px;
+      }
+      .task ul li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .task ul li span {
+        background-color: #dce4fa;
+      }
+      .task ul li span a {
+        color: rgb(80, 106, 224);
+        text-decoration: none;
+      }
+      .users-section {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+        padding: 10px;
+        margin: 10px;
+      }
+      .card {
+        background-color: #f4f8fb9c;
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.05), 0 6px 6px rgba(79, 70, 229, 0.1);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        transition: 0.5s;
+        gap: 10px;
+      }
+      .card:hover {
+    box-shadow: 0 20px 40px rgba(79, 70, 229, 0.2);
+    transform: translateY(-10px);
+      }
+      .image {
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+      }
+      .card a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        color: #3d0e63;
+        text-decoration: none;
+        font-size: 13px;
+      }
+      .card a img {
+        color: #3d0e63;
+      }
+      .text {
+        text-align: center;
+        color: #6a7382;
+        position: relative;
+      }
+      .text::after {
+        position: absolute;
+        content: "";
+        width: 43%;
+        height: 2px;
+        background-color: #d9d9f3;
+        bottom: 5px;
+        left: 0;
+      }
+      .text::before {
+        position: absolute;
+        content: "";
+        width: 43%;
+        height: 2px;
+        background-color: #d9d9f3;
+        bottom: 5px;
+        right: 0;
+      }
+      .loding {
+        background-color: #4f46e5;
+        width: fit-content;
+        padding: 10px 25px;
+        border-radius: 8px;
+        margin: 20px auto;
+        font-weight: 500;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="containar" id="containar">
+      <div class="head">
+        <h1>
+          <img
+            width="45"
+            height="45"
+            src="https://img.icons8.com/3d-fluency/94/github-logo.png"
+            alt="github-logo"
+          />GitHub Users <span>Viewer</span>
+        </h1>
+        <p>Fetch data from GitHub API and display users dynamically</p>
+      </div>
+      <div class="task">
+        <h2>
+          <img
+            width="30"
+            height="30"
+            src="https://img.icons8.com/emoji/48/bullseye.png"
+            alt="bullseye"
+          />Your Task
+        </h2>
+        <ul>
+          <li>
+            <img
+              src="https://img.icons8.com/ios-glyphs/30/4f46e5/ok--v1.png"
+              width="20"
+              height="20"
+            />
+            Fetch users from :
+            <span
+              ><a href="https://api.github.com/users" target="_blank"
+                >https://api.github.com/users</a
+              ></span
+            >
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/ios-glyphs/30/4f46e5/ok--v1.png"
+              width="20"
+              height="20"
+            />Display each users avatar , username, and profile link
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/ios-glyphs/30/4f46e5/ok--v1.png"
+              width="20"
+              height="20"
+            />Show the data inside beutifull user cards (first 10 users)
+          </li>
+        </ul>
+      </div>
+
+      <div class="loding" id="loading"></div>
+      <p class="text">Users will appear here</p>
+      <div class="users-section" id="users-section"></div>
+    </div>
+    <script>
+      let url = "https://api.github.com/users";
+      let usersSection = document.getElementById("users-section");
+      let loadingDiv = document.getElementById("loading");
+      //   مبدئيا الرسالة استخدمت innerhtml  عشان الايقونة
+      loadingDiv.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Loading users...`;
+      fetch(url)
+        .then((reponse) => reponse.json())
+        .then((users) => {
+          //اذا جاب الداتا اخفي الرسالة
+          loadingDiv.style.display = "none";
+          users.slice(0, 10).forEach((user) => {
+            const card = `
+        <div class="card" id="card">
+          <img src="${user.avatar_url}" width="50" class="image" />
+          <h4>${user.login}</h4>
+            <a href="${user.html_url}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i>
+              View Profile</a>
+        </div>
+      `;
+      
+            loadingDiv.textContent = "User fetched";
+            usersSection.innerHTML += card;
+          });
+        })
+        .catch((err) => {
+          loadingDiv.textContent = "Failed to load users.";
+          loadingDiv.style.backgroundColor = "red";
+          console.error(err);
+        });
+    </script>
+  </body>
+</html>
