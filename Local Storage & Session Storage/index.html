@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // set 
+        localStorage.setItem("name","Ahmad");
+        // get
+        const name=localStorage.getItem("name");
+console.log(name);
+// remove
+// localStorage.removeItem("name");
+// store obj but local and session storge accsept only string
+const user= {
+  name:"Ahmad",
+  age:25
+};
+
+// Store
+localStorage.setItem("user",JSON.stringify(user));
+
+// Get
+const data=localStorage.getItem("user");
+const parsedUser=JSON.parse(data);
+
+console.log(parsedUser.name);
+//array
+const tasks = [
+    { id: 1, title: "تعلم JavaScript", completed: false },
+    { id: 2, title: "تطبيق على LocalStorage", completed: true }
+];
+
+localStorage.setItem("myTasks", JSON.stringify(tasks));
+
+const savedData = localStorage.getItem("myTasks");
+
+if (savedData) {
+    const parsedTasks = JSON.parse(savedData);
+    
+   
+    parsedTasks.forEach(task => {
+        console.log(`المهمة: ${task.title} - الحالة: ${task.completed ? 'تمت' : 'قيد التنفيذ'}`);
+    });
+}
+localStorage.clear()
+    </script>
+</body>
+</html>

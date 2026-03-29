@@ -38,7 +38,7 @@
 <body>
     <h3 class="head">
         What is Lorem ?
-        <a href="#">Show</a>
+        <a class="show" href="#">Show</a>
     </h3>
     <div class="card">
         <p>Why do we use it?</p>
@@ -46,22 +46,27 @@
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis placeat voluptates
              enim voluptatum impedit amet dolores aperiam quidem 
              corrupti aliquam aut, eos consequatur, porro ab vitae sapiente! Omnis, et. Quaerat.
-             <a href="#">Hide</a>
+             <a class="hide" href="#">Hide</a>
         </div>
     </div>
       <h3 class="head">
         Where does it come from ?
-        <a href="#">Show</a>
+        <a class="show" href="#" >Show</a>
     </h3>
     <script>
-let showBtn = document.getElementsByTagName("a")[0];
+let showBtn = document.querySelectorAll(".show");
 let card = document.getElementsByTagName("div")[0]
-showBtn.addEventListener("click",function(e){
+showBtn.forEach(e=>{
+    e.addEventListener("click",function(e){
+        
 card.classList.add("active");
 })
-let hideBtn=document.getElementsByTagName("a")[1];
-hideBtn.addEventListener("click",function(element){
+})
+let hideBtn=document.querySelectorAll(".hide");
+hideBtn.forEach(e=>{
+    e.addEventListener("click",function(element){
 card.classList.remove("active")
+})
 })
     </script>
 </body>

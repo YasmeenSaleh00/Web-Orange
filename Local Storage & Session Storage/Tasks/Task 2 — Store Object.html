@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2 — Store Object</title>
+    <style>
+        #form{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            justify-content:center ;
+            align-items: center;
+            margin: 50px auto;
+            background-color: #dddd;
+            padding: 10px;
+            max-width: 200px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="" id="form">
+        <div>  <label for="name">Name:</label>
+        <input type="text" id="name"></div>
+         <div>  <label for="email">Email:</label>
+        <input type="email" id="email"></div>
+        <button type="submit">Submit</button>
+
+    </form>
+    <div class="info" id="data">
+        <p>Name :</p>
+        <p>Eamil: </p>
+    </div>
+    <script>
+//         ## Objective
+
+// Work with JSON in storage
+
+// ---
+
+// ## 💻 Requirements
+
+// Create a form with:
+
+// - Name
+// - Email
+// - Store the data as an object in localStorage
+// - Display saved data on the page
+// - Refresh the page → data should still appear
+let form = document.getElementById("form");
+let inputName = document.getElementById("name");
+let inputEmail = document.getElementById("email");
+let display = document.getElementById("data");
+
+// function displayData() {
+    
+// }
+
+// displayData();
+
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let user = {
+        userName: inputName.value,
+        userEmail: inputEmail.value
+    };
+
+    localStorage.setItem("userProfile", JSON.stringify(user));
+
+  let rawData = localStorage.getItem("userProfile");
+    
+    if (rawData) {
+        let userObj = JSON.parse(rawData); 
+        display.innerHTML = `
+            <p>Name: ${userObj.userName}</p>
+            <p>Email: ${userObj.userEmail}</p>
+        `;
+    }
+    
+   
+});
+    </script>
+</body>
+</html>
