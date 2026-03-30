@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Project — Smart User Directory</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif; /* خط عصري ونظيف */
+  }
+
+  body {
+    background-color: #f8fafc; /* لون خلفية مريح للعين */
+    color: #1e293b;
+  }
+
+  /* القسم المتميز - Featured */
+  .featuered {
+    background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    clip-path: ellipse(150% 100% at 50% 0%); /* حركة انسيابية في التصميم */
+  }
+
+  .featuered h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+
+  .users-section {
+    max-width: 1100px;
+    padding: 0 20px;
+    margin-top: 20px;
+  }
+
+  #form {
+    display: flex;
+    gap: 0;
+    background: white;
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+  }
+
+  #search {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: #475569;
+  }
+
+  #form button {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  #form button:hover {
+    background: #2563eb;
+  }
+
+  #display-users {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+  }
+
+  .user-card {
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    border: 1px solid #f1f5f9;
+    transition: all 0.3s ease;
+  }
+
+  .user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.05);
+    border-color: #3b82f6;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .card-header img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+ 
+  }
+
+  .user-meta h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  .user-meta span {
+    font-size: 0.85rem;
+    color: #64748b;
+  }
+
+  .user-card p {
+    color: #475569;
+    font-size: 0.9rem;
+    padding: 12px 0;
+    border-top: 1px dotted #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .user-card p i {
+    color: #3b82f6;
+    background: #eff6ff;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-size: 0.8rem;
+  }
+
+  .no-results {
+   
+    text-align: center;
+    padding: 40px;
+    color: #94a3b8;
+  }
+</style>
+        
+  </head>
+  <body>
+    <div class="featuered" id="featuerd-users">
+      <h2>Featured Users</h2>
+      <hr style="width: 100%; background-color: rgb(83 136 225)" />
+    </div>
+    <div class="users-section">
+      <h3>User Directory</h3>
+      <hr />
+      <form action="" id="form">
+        <input type="search" id="search" />
+        <button type="submit">Search</button>
+      </form>
+      <div id="display-users"></div>
+    </div>
+
+    <script>
+     
+    let url = "https://jsonplaceholder.typicode.com/users";
+    let users = [];
+
+    let form = document.getElementById("form");
+    let input = document.getElementById("search");
+    let display = document.getElementById("display-users");
+
+    function displayUsers(results) {
+        display.innerHTML = ""; 
+
+        results.forEach((user) => {
+            const card = document.createElement("div");
+            card.className = "user-card";
+            card.innerHTML = `
+                <div class="card-header">
+                    <img src="https://i.pravatar.cc/150?u=${user.email}" alt="user">
+                    <div>
+                        <h4>${user.name}</h4>
+                        <span>${user.username}</span>
+                    </div>
+                </div>
+                <p><i class="fa-solid fa-envelope"></i> ${user.email}</p>
+                <p><i class="fa-solid fa-location-dot"></i> ${user.address.city}</p>
+                <p><i class="fa-solid fa-briefcase"></i> ${user.company.name}</p>
+            `;
+            display.appendChild(card);
+        });
+    }
+
+    const storedData = localStorage.getItem("user-profile");
+
+    if (storedData) {
+        users = JSON.parse(storedData);
+        displayUsers(users);
+    } else {
+        fetch(url)
+            .then((response) => response.json())
+            .then((data) => {
+                users = data;
+                localStorage.setItem("user-profile", JSON.stringify(data));
+                displayUsers(users);
+            });
+    }
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        let searchValue = input.value.toLowerCase().trim();
+
+        if (searchValue === "") {
+            displayUsers(users); 
+            return;
+        }
+
+        const results = users.filter((user) =>
+            user.name.toLowerCase().includes(searchValue) ||
+            user.username.toLowerCase().includes(searchValue)
+        );
+
+        if (results.length > 0) {
+            displayUsers(results);
+        } else {
+            display.innerHTML = "<p style='grid-column: span 2; text-align: center;'>No result found</p>";
+        }
+    });
+</script>
+    
+  </body>
+</html>

@@ -1,152 +1,187 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Final Task — Search System with Storage</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 50px;
-        }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f7f6;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px;
+      }
+      .search {
+        background-color: gainsboro;
+        border-radius: 10px;
+        padding: 20px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 
-        #form {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            display: flex;
-            gap: 10px;
-            margin-bottom: 30px;
-        }
+      }
+      #form {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        gap: 10px;
+        margin-bottom: 30px;
+      }
 
-        input {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            outline: none;
-            width: 250px;
-        }
+      input {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        outline: none;
+        width: 250px;
+      }
 
-        input:focus {
-            border-color: #007bff;
-        }
+      input:focus {
+        border-color: #007bff;
+      }
 
-        button[type="submit"] {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+      button[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
 
-        button[type="submit"]:hover {
-            background-color: #0056b3;
-        }
+      button[type="submit"]:hover {
+        background-color: #0056b3;
+      }
 
-        #display-results {
-            width: 100%;
-            max-width: 400px;
-        }
+      #display-results {
+        width: 100%;
+        max-width: 400px;
+      }
 
-        .user-card {
-            background: white;
-            margin-bottom: 10px;
-            padding: 15px;
-            border-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
+      .user-card {
+        background: white;
+        margin-bottom: 10px;
+        padding: 15px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
 
-        .delete-btn {
-            background-color: #ff4d4d;
-            color: white;
-            border: none;
-            padding: 5px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.9em;
-        }
+      .delete-btn {
+        background-color: #ff4d4d;
+        color: white;
+        border: none;
+        padding: 5px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.9em;
+      }
 
-        .delete-btn:hover {
-            background-color: #cc0000;
-        }
-
-  
+      .delete-btn:hover {
+        background-color: #cc0000;
+      }
+      .head {
+        position: relative;
+      }
+      h3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+      }
+      h3::before {
+        position: absolute;
+        content: "";
+        width: 400px;
+        background-color: #0056b3;
+        height: 1px;
+        bottom: 0px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="search">
+      <div class="head">
+        <h3>
+          <img
+            width="45"
+            height="45"
+            src="https://img.icons8.com/cotton/128/search--v2.png"
+            alt="search--v2"
+          />User Search
+        </h3>
+      </div>
 
-    <form id="form">
-        <input type="text" id="input" placeholder="Search for a name...">
+      <form id="form">
+        <input type="text" id="input" placeholder="Search for a name..." />
         <button type="submit">Search</button>
-    </form>
+      </form>
 
-    <div id="display-results"></div>
-
+      <div id="display-results">
+      </div>
+    </div>
     <script>
-        const users = [
-            { name: "Ahmad" },
-            { name: "Ali" },
-            { name: "Sara" },
-            { name: "Lana" }
-        ];
+      const users = [
+        { name: "Ahmad" },
+        { name: "Ali" },
+        { name: "Sara" },
+        { name: "Lana" },
+      ];
 
-        let userNames = JSON.parse(localStorage.getItem("users-name")) || users;
-        localStorage.setItem("users-name", JSON.stringify(userNames));
+      let userNames = JSON.parse(localStorage.getItem("users-name")) ;
+      localStorage.setItem("users-name", JSON.stringify(userNames));
 
-        let form = document.getElementById("form");
-        let input = document.getElementById("input");
-        let displayDiv = document.getElementById("display-results");
+      let form = document.getElementById("form");
+      let input = document.getElementById("input");
+      let displayDiv = document.getElementById("display-results");
 
-        form.addEventListener("submit", function(e) {
-            e.preventDefault();
-            renderResults();
-        });
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        renderResults();
+      });
 
-        function renderResults() {
-            displayDiv.innerHTML = ""; 
-            const searchValue = input.value.toLowerCase();
+      function renderResults() {
+        displayDiv.innerHTML = "";
+        const searchValue = input.value.toLowerCase();
 
-            const results = userNames.filter(user => 
-                user.name.toLowerCase().includes(searchValue)
-            );
+        const results = userNames.filter((user) =>
+          user.name.toLowerCase().includes(searchValue),
+        );
 
-            if (results.length > 0 && searchValue !== "") {
-                results.forEach(user => {
-                    const card = document.createElement("div");
-                    card.className = "user-card";
-                    
-                    card.innerHTML = `
+        if (results.length > 0 && searchValue !== "") {
+          results.forEach((user) => {
+            const card = document.createElement("div");
+            card.className = "user-card";
+
+            card.innerHTML = `
+            
                         <span>${user.name}</span>
                         <button class="delete-btn">Delete</button>
                     `;
 
-                    const btn = card.querySelector(".delete-btn");
-                    btn.addEventListener("click", function() {
-                        deleteUser(user.name);
-                    });
+            const btn = card.querySelector(".delete-btn");
+            btn.addEventListener("click", function () {
+              deleteUser(user.name);
+            });
 
-                    displayDiv.appendChild(card);
-                });
-            } else if (searchValue !== "") {
-                displayDiv.innerHTML = "<div style='text-align:center; color:#888;'>No results found</div>";
-            }
+            displayDiv.appendChild(card);
+          });
+        } else if (searchValue !== "") {
+          displayDiv.innerHTML =
+            "<div style='text-align:center; color:#888;'>No results found</div>";
         }
+      }
 
-        function deleteUser(nameToDelete) {
-            userNames = userNames.filter(u => u.name !== nameToDelete);
-            localStorage.setItem("users-name", JSON.stringify(userNames));
-            renderResults();
-        }
+      function deleteUser(nameToDelete) {
+        userNames = userNames.filter((u) => u.name !== nameToDelete);
+        // localStorage.setItem("users-name", JSON.stringify(userNames));
+        renderResults();
+      }
     </script>
-</body>
+  </body>
 </html>

@@ -1,86 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task 2 — Store Object</title>
     <style>
-        #form{
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            justify-content:center ;
-            align-items: center;
-            margin: 50px auto;
-            background-color: #dddd;
-            padding: 10px;
-            max-width: 200px;
-            border-radius: 10px;
-        }
+      #form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        margin: 50px auto;
+        background-color: #dddd;
+        padding: 10px;
+        max-width: 200px;
+        border-radius: 10px;
+      }
+      input {
+        padding: 5px;
+        border: none;
+      }
+      input:focus {
+        outline: 1px solid #126cbb;
+      }
+      .info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      button {
+        background-color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        box-shadow: 1px 1px 10px #dddddd6a;
+        transition: 0.4s;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+      button:hover {
+        background-color: #126cbb;
+        color: white;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <form action="" id="form">
-        <div>  <label for="name">Name:</label>
-        <input type="text" id="name"></div>
-         <div>  <label for="email">Email:</label>
-        <input type="email" id="email"></div>
-        <button type="submit">Submit</button>
-
+      <div><label for="name">Name:</label> <input type="text" id="name" /></div>
+      <div>
+        <label for="email">Email:</label> <input type="email" id="email" />
+      </div>
+      <button type="submit">Submit</button>
     </form>
     <div class="info" id="data">
-        <p>Name :</p>
-        <p>Eamil: </p>
+      <h4>Your info</h4>
+      <p>Name :</p>
+      <p>Eamil:</p>
     </div>
     <script>
-//         ## Objective
+      //         ## Objective
 
-// Work with JSON in storage
+      // Work with JSON in storage
 
-// ---
+      // ---
 
-// ## 💻 Requirements
+      // ## 💻 Requirements
 
-// Create a form with:
+      // Create a form with:
 
-// - Name
-// - Email
-// - Store the data as an object in localStorage
-// - Display saved data on the page
-// - Refresh the page → data should still appear
-let form = document.getElementById("form");
-let inputName = document.getElementById("name");
-let inputEmail = document.getElementById("email");
-let display = document.getElementById("data");
+      // - Name
+      // - Email
+      // - Store the data as an object in localStorage
+      // - Display saved data on the page
+      // - Refresh the page → data should still appear
+      let form = document.getElementById("form");
+      let inputName = document.getElementById("name");
+      let inputEmail = document.getElementById("email");
+      let display = document.getElementById("data");
 
-// function displayData() {
-    
-// }
-
-// displayData();
-
-form.addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    let user = {
-        userName: inputName.value,
-        userEmail: inputEmail.value
-    };
-
-    localStorage.setItem("userProfile", JSON.stringify(user));
-
-  let rawData = localStorage.getItem("userProfile");
-    
-    if (rawData) {
-        let userObj = JSON.parse(rawData); 
+      let sored = localStorage.getItem("user-info");
+      if (sored) {
+        let obj = JSON.parse(sored);
+        display.innerHTML = `<h4>Your info</h4>
+        <p>Name : ${obj.name}</p>
+        <p>Email : ${obj.email}</p>`;
+      }
+      form.addEventListener("submit", function (e) {
+        const user = {
+          name: inputName.value,
+          email: inputEmail.value,
+        };
+        localStorage.setItem("user-info", JSON.stringify(user));
         display.innerHTML = `
-            <p>Name: ${userObj.userName}</p>
-            <p>Email: ${userObj.userEmail}</p>
-        `;
-    }
-    
-   
-});
+        <h4>Your info</h4>
+        <p>Name : ${obj.name}</p>
+        <p>Email : ${obj.email}</p>`;
+      });
     </script>
-</body>
+  </body>
 </html>

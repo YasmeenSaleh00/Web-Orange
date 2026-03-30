@@ -1,46 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
-</head>
-<form action="" id="form">
-<label>userName : </label>
-<input type="text" name="userName" id="input">
-<button type="submit" id="btn">Save Name</button>
-</form>
-<h3 id="display"></h3>
-<body>
+  </head>
+  <form action="" id="form">
+    <label>userName : </label>
+    <input type="text" name="userName" id="input" />
+    <button type="submit" id="btn">Save Name</button>
+  </form>
+  <h3 id="display"></h3>
+  <body>
     <!-- Task 1 — Save Simple Data -->
-     <script>
-        // ## Objective
+    <script>
+      // ## Objective
 
-// Practice storing and retrieving data
+      // Practice storing and retrieving data
 
-// ---
+      // ---
 
-// ## 💻 Requirements
+      // ## 💻 Requirements
 
-// - Create an input field
-// - Add a button "Save Name"
+      // - Create an input field
+      // - Add a button "Save Name"
 
-// ### المطلوب:
+      // ### المطلوب:
 
-// - Save the name in localStorage
-// - Display it on the page
-let form = document.getElementById("form");
-let input = document.getElementById("input");
-let display=document.getElementById("display")
-
-form.addEventListener("submit",function(e){
-    e.preventDefault();
-    value = input.value;
-  localStorage.setItem("name",value);
-  display.innerText = value;
-});
-
-     </script>
-</body>
+      // - Save the name in localStorage
+      // - Display it on the page
+      let form = document.getElementById("form");
+      let input = document.getElementById("input");
+      let display = document.getElementById("display");
+      let storedName = localStorage.getItem("name");
+      if (storedName) {
+        //اذا فيه قيمة مخزنة هاتها
+        display.innerText = "Welcome back, " + storedName;
+      }
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        let value = input.value;
+        localStorage.setItem("name", value);
+        display.innerText = value;
+      });
+    </script>
+  </body>
 </html>
